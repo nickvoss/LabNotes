@@ -1,0 +1,532 @@
+{
+ "metadata": {
+  "name": ""
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "heading",
+     "level": 1,
+     "metadata": {},
+     "source": [
+      "Erastothenes and the Size of the Earth"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 4,
+     "metadata": {},
+     "source": [
+      "Grades 11-12"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 2,
+     "metadata": {},
+     "source": [
+      "Who was Erastothenes?"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Eratosthenes was a scientist in Ancient Greece. What he is most famous for is being the first man to accurately estimate the circumference, the distance around a circle, of the earth. Upon hearing that at noon during the summer Solistice you could see straight down a water well in Aswan (a city towards the South of Egypt). He came up with a clever idea. Today we will learn about how Eratosthenes accomplished this feat,and then recreate his experiment."
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "This is a recreation of Eratosthenes, although I am sure that he had pupils in his eyes. "
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "\n"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from IPython.display import Image \n",
+      "Image(url = 'http://priya7.files.wordpress.com/2008/04/eratosthenes1.jpg')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<img src=\"http://priya7.files.wordpress.com/2008/04/eratosthenes1.jpg\"/>"
+       ],
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 1,
+       "text": [
+        "<IPython.core.display.Image at 0x25dd850>"
+       ]
+      }
+     ],
+     "prompt_number": 1
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Eratosthenes lived in a a city called Alexandria in Ancient Greece, this city is to the north of the town I mentioned earlier called Aswan. The two towns are seperated by 800 km, although in Eratosthenes time they used a different form of measurement and it was measured by walking from Alexandria to Aswan!"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from IPython.display import Image \n",
+      "Image(url = 'http://sierra.nmsu.edu/morandi../CourseMaterials/graphics/EgyptMap2.gif')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<img src=\"http://sierra.nmsu.edu/morandi../CourseMaterials/graphics/EgyptMap2.gif\"/>"
+       ],
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 2,
+       "text": [
+        "<IPython.core.display.Image at 0x25ddc50>"
+       ]
+      }
+     ],
+     "prompt_number": 2
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 2
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Erastonstenes had heard that at noon on the day of the Summer Solistice the sun shined straight down a deep well, and the pillars in the city had no shadow. "
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 2,
+     "metadata": {},
+     "source": [
+      "What is special about noon? What does the Summer Solistice mean?"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Now at noon, and on the Summer Solstice the pillars in Alexandria had shadows. This meant that the earth must be curved so that the suns rays could make shadows in Alexandria and yet not in Aswan. Carl Sagan does a great job with the video below that helps you visualize the geometry. "
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": true,
+     "input": [
+      "from IPython.display import YouTubeVideo\n",
+      "YouTubeVideo('G8cbIWMv0rI',start = 229, end = 309)\n"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "\n",
+        "        <iframe\n",
+        "            width=\"400\"\n",
+        "            height=300\"\n",
+        "            src=\"http://www.youtube.com/embed/G8cbIWMv0rI?start=229&end=309\"\n",
+        "            frameborder=\"0\"\n",
+        "            allowfullscreen\n",
+        "        ></iframe>\n",
+        "        "
+       ],
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 3,
+       "text": [
+        "<IPython.lib.display.YouTubeVideo at 0x25ddd50>"
+       ]
+      }
+     ],
+     "prompt_number": 3
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 3
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "So the goal is to measure the lengths of shadows from things of known height in two places and compare them in order to determine the curvature of the earth, this is done using angles. "
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Does our measurment have to be on the Summer Solstice?"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Does it have to be at noon?"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 1,
+     "metadata": {},
+     "source": [
+      "Our Experiment:"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "You will be working with partners school that is on a different latitude than yours to recreate Eratosthenes famous equation and figure out the circumfrence of the Earth. You will both need to take the measurement at the same time which is your noon. The best way to figure out when exact noon happens is to take the half way time in between the sunrise and sunset times for your town. "
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Find the sunrise and sunset time in the paper or through the computer. What is the half way time between the two?\n"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Hint if you add 12 hours to the sunset time (make it \"military time\") and then take the avearge between the two this will be the halfway time."
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "You now know the time at which to make the measurement so that you can compare with your partners. You are going to want to measure the angle between the stick standing up and the shadow. This angle is equivelent to the interior angle of the earth. The key \n",
+      "understading this is to remember the symetry of angles found when a line intersects two parallel lines. "
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import matplotlib.pyplot as plt\n",
+      "%pylab inline \n",
+      "t = np.arange(0,2,.01)\n",
+      "s = 2*(t)+1\n",
+      "r = 2*(t)+2\n",
+      "v = 0*t+3\n",
+      "plt.plot(t,s,t,r,t,v)\n",
+      "\n",
+      "plt.show()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Populating the interactive namespace from numpy and matplotlib\n"
+       ]
+      },
+      {
+       "metadata": {},
+       "output_type": "display_data",
+       "png": "iVBORw0KGgoAAAANSUhEUgAAAW0AAAD9CAYAAAB3ECbVAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1+/AAAFJdJREFUeJzt3HlwVfXdx/HPFWhtAEEsBTQZ6UDUBIQE8MmoEIOoyCoo\nTkUUqsEHcRSxo07FBWiBxG1kE8b6B5WRUZ7BeRQUrVi5LGIGbVCg2IZR8hgWU9Fhi0IWzvPHFSQh\nudv53Xu292smM1xylx+Hky+Hc9/3hCzLsgQA8IRznF4AACB+DG0A8BCGNgB4CEMbADyEoQ0AHsLQ\nBgAPiTm0Dx06pHHjxiknJ0e5ubkqKytLx7oAAM1oHesODz74oIYPH65Vq1apvr5eNTU16VgXAKAZ\noWgfrjl8+LDy8/P11VdfpXNNAIAWRD3S3rNnjzp37qy77rpLn3/+ufr3768FCxYoIyNDkhQKhdKy\nSADwm2Q/jB71nHZ9fb3Ky8t13333qby8XG3btlVpaelZL8yXma+ZM2c6vgY/fbE92Z5u+jp24pjm\nbJijXz/z66SGdVxDOzMzU5mZmbriiiskSePGjVN5ebmtFwSAIKlrqNOST5Yoe1G2dvxnh7bcvcXW\n80U9PdK1a1dlZWWpoqJCl1xyiT744AP16tXL1gsCQBCctE5q5c6VenL9k+rRqYfWjF+j/hf2t/28\nMeuRRYsWacKECaqtrVWPHj20bNky2y+K5hUVFTm9BF9he5rF9oyPZVn625d/02N/f0xtzmmjv4z6\ni6797bXGnj9qPRLzwaGQbDwcAHylbG+ZHvv7Yzpw9IDmXjtXN+fc3GywYWd2xjzSBgBE98W3X+jx\nDx/X1n1bNatoln6f93u1Pic145WPsQNAkqoOV6l4dbEK/1qoKzOv1O4Hdmtyv8kpG9gSR9oAkLDv\nfvhOJZtLtOyzZZrSf4p2P7BbHc/
+tmJbXZmgDQJxqams0v2y+Xih7Qbf2ulU7pu7Qhe0vTOsaGNoA\nEENdQ51eLn9ZczbOUeHFhfq4+GNlX5DtyFoY2gDQglS11nYwtAGgiVS31nYwtAHgDPG21k5haAOA\n0tta20GnDSDQnGit7XDnqgAgxZxsre1gaAMIFDe01nYwtAEEgptaazsY2gB8zY2ttR0MbQC+5ObW\n2g6GNgDfcXtrbQdDG4BveKW1toNOG4Dnea21tsN/fyIAgeHV1toOhjYAz/F6a20HQxuAZ/iltbaD\noQ3A9fzWWtvB0AbgWn5tre1gaANwJT+31nYwtAG4ShBaazvotAG4QpBaazvYGgAcFcTW2g6GNgBH\nBLm1toOhDSCtaK3tYWgDSAtaazMY2gBSitbaLIY2gJShtTaPoQ3AOFrr1KHTBmAMrXXqsSUB2EZr\nnT4xh3b37t113nnnqVWrVmrTpo22bt2ajnUB8ABa6/SLObRDoZDC4bA6deqUjvUA8ABaa+fEdXrE\nsqxUrwOAB9BaOy+uI+3rrrtOrVq10pQpU3TPPfc0+v6sWbNO/7qoqEhFRUWm1wjAYbTW9oTDYYXD\nYSPPFbJiHEYfOHBA3bp107fffqvrr79eixYt0qBBgyIPDoU4Cgd8jtbanIYG6Y03pN/9LvnZGTP5\n69atmySpc+fOGjt2LG9EAgHxxbdf6OaVN2vc/4zThMsnaOd9O3VL7i0M7CRYlrR6tdS3r7Rwob3n\nijq0f/jhBx09elSSVFNTo/fff1+XX365vVcE4Gq01mZt2iQNHCg9/rhUWhq5bUfUv4Xq6mqNHTtW\nklRfX68JEybohhtusPeKAFyJ1tqs7dulGTOkf/5T+tOfpNtvl1q1sv+8Mc9pR30w57QBz2vaWj9Z\n+CSttQ179khPPSWtWxcZ2lOmSL/8ZeP72JmdfIwdCKi6hjot+WSJshdla8d/dujj4o+1dMRSBnaS\
+nqquladOkAQOknj2l3bsjt5sObLs4SQUEDK21WUeOSM8/Ly1eLN15p/TFF9JvfpO612NoAwFBa23W\niRPS0qVSSYl0443SP/4hde+e+tdlaAMBQGttTkOD9Oqr0syZUp8+0gcfSOmM6hjagI9xXWtzLEta\nsyby5mLHjpHBPXBg+tfB3x7gQ1WHqzRrwyyt/vdqPXrVo1px8wr9qs2vnF6WZ23aJP3xj5Hz16Wl\n0ogRklP/UWFoAz5Ca21WqlprO0j+AB+oqa3R3I1zdeniS1VTV6MdU3do3pB5DOwk7dkTKUFuuCHy\n9a9/RW47PbAlhjbgabTWZqWrtbaD0yOAB9Fam5Xu1toOhjbgIbTWZjnVWtvB0AY8gtbaHKdbazsY\n2oDL0Vqb45bW2g7+5gGXorU2y02ttR0MbcBlaK3NcmNrbQfJH+AStNZmubm1toOhDTiM1tosL7TW\ndnB6BHAIrbVZXmqt7WBoA2lGa22WF1trOxjaQBrRWpvj5dbaDoY2kAa01ub4obW2g70GSCFaa7P8\n0lrbwdAGUoDW2iy/tdZ2kPwBBtFam+XX1toOhjZgAK21WX5vre3g9AhgQ9PW+u3b31a/bv2cXpZn\nBaW1toOhDSThzNb6F61+QWttU9BaazsY2kCCzmyt5w2Zp7GXjaW1TlJQW2s7GNpAnE611p/s/0Qz\nr5lJa21D0FtrO9jjgBhOtdZr/r1Gj1z1CK21TbTW9jC0gRY0ba0rHqgg3bOB1toMkj+giaat9c6p\nO2mtbaC1NouhDfykpda6W/tuTi/Nk2itU4PTIwg8WmuzaK1Ti6GNwKK1NovWOj0Y2ggkWmtzaK3T\nK66h3dDQoAEDBigzM1Nr1qxJ9ZqAlKG1NofW2hlx7a0LFixQbm6ujh49mur1AClBa20WrbVzYtYj\ne/fu1dq1azV58mRZlpWONQHGfPfDd3r4/YeV91KeurTtoooHKvTI1Y8wsJO0fbs0cqQ0caJ0773S\
+nZ59FbjOw0yfmkfZDDz2kZ599VkeOHGn2+7NmzTr966KiIhUVFZlaG5C0mtoazS+brxfKXtCtvW7V\nzqk7Sfds2LNHeuopad26yOmQN94g3UtEOBxWOBw28lwhK8rh89tvv613331XL774osLhsJ5//vlG\n57RDoRBH33CVuoY6vVz+suZsnKPCiwv158F/VvYF2U4vy7Oqq6W5c6UVKyKN9R/+ILVv7/SqvM/O\n7Ix6pL1lyxatXr1aa9eu1fHjx3XkyBFNnDhRy5cvT+rFgFShtTaL1tq9oh5pn2nDhg167rnnONKG\nqzRtrUuGlNBa29C0tZ49m9Y6FVJ2pN3cCwFuQWttDq21d8R9pN3sgznShgNorc1p2lqXltJap0Pa\njrQBJ9Fam0Vr7U0Mbbge17U2i+taexuXZoVrcV1rs7iutT8wtOE6XNfaLK5r7S+cHoFr0FqbRWvt\nTwxtOI7rWpvFda39jaENR9Fam0NrHQwMbTiC1tocrmsdLPyUIK1orc2itQ4ehjbSgtbaLFrr4CL5\nQ0rRWptFaw2GNlKC1tosWmucwukRGEVrbRatNZpiaMMIWmuzaK3REoY2bKO1NofWGrEwtJE0Wmtz\naK0RL37CkDBaa7NorZEIhjbiRmttFq01kkHyh5horc2itYYdDG20iNbaLFprmMDpEZyF1tosWmuY\nxNDGabTWZtFaIxUY2pBEa20SrTVSiaEdcLTW5tBaIx346QwoWmuzaK2RLgztgKG1NovWGulG8hcQ\ntNZm0VrDKQxtn6O1NovWGk7j9IhP0VqbRWsNt2Bo+wyttVm01nAbhraP0FqbQ2sNt2Jo+wCttTm0\n1nA7frI9jNbaLFpreAFD24Norc2itYaXkPx5CK21WbTW8CKGtgfQWptFaw0vi3p65Pjx47rmmmt0\n4sQJ1dbW6qabblJJSUm61hZ4tNZm0VrDD6IO7XPPPVfr169XRkaG6uvrNXDgQG3evFkDeTs9pWit\nzaK1hp/
+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\nRU5ErkJggg==\n",
+       "text": [
+        "<matplotlib.figure.Figure at 0x311c050>"
+       ]
+      }
+     ],
+     "prompt_number": 4
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Mark all the angles on the graph above to remind yourself of how this symetery works."
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Now if we imagine that the parralel lines are the sun and the interescting horizontal line is not straight but curved. We get a geometery more similar to this:"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from IPython.display import Image\n",
+      "Image(url = 'http://brightstartutors.com/blog/wp-content/uploads/2012/05/Eratosthenes-499x443.png')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<img src=\"http://brightstartutors.com/blog/wp-content/uploads/2012/05/Eratosthenes-499x443.png\"/>"
+       ],
+       "metadata": {},
+       "output_type": "pyout",
+       "prompt_number": 5,
+       "text": [
+        "<IPython.core.display.Image at 0x25ddbd0>"
+       ]
+      }
+     ],
+     "prompt_number": 5
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "That angle, in this case 7 degrees, is the angle between the stick and the hypotenus of the shadow. Since Eratosthenes was measuring relative to the Tropic of Cancer (Where the suns rays hit perpendicular to the earths surface on the summer solstice) he could assume that the 7 degrees were equal to the number of degrees between Alexandria and Aswan. Since he knew that distance from Alexandria to Aswan he could then convert that distance to 360 degrees to get the circumferance of the earth. This is all taking advantage of the formula for a length of an arc given a radius and a angle:\n",
+      "\n",
+      "$$Arc\\:Length = (Interior\\:angle/360)*Circumference$$ "
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "We will be adopting a slightly modified approach to our experiment since we will be measuring relative to a partner school. "
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "The first step is to measure the angle between the hypotenuse of the triangle (formed by the stick and shadow) and the stick at the real noon calculated earlier. "
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import matplotlib.pyplot as plt\n",
+      "from matplotlib.patches import Ellipse\n",
+      "%pylab inline  \n",
+      "t = np.arange(0,2, .01)\n",
+      "s = -(1.0/2.0)*(t)+1.0\n",
+      "plt.plot(t,s)\n",
+      "l = plt.axvline(x=0, ymin=0, linewidth=8, color='r')\n",
+      "\n",
+      "r = Ellipse(xy=(1,.025), width=2, height=.1,color = 'grey')\n",
+      "\n",
+      "plt.axis([0,2,0,1])\n",
+      "ax = plt.gca()\n",
+      "ax.add_patch(r)\n",
+      "plt.text(.1,.8,r'$\\theta$', size = 20)\n",
+      "plt.ylabel(\"Height of Stick\", size = 20)\n",
+      "plt.xlabel(\"Length of Shadow\",size = 20)\n",
+      "plt.show()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Populating the interactive namespace from numpy and matplotlib\n"
+       ]
+      },
+      {
+       "metadata": {},
+       "output_type": "display_data",
+       "png": "iVBORw0KGgoAAAANSUhEUgAAAY8AAAEVCAYAAAAYZ2nCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\nAAALEgAACxIB0t1+/AAAIABJREFUeJzt3XlYU2fePvD7BAKyI2hdAAWB4oJiqUupSkFbUa/RUdHR\nzriirXa66Ttd1BkH1Jm2tm9nqrW2dlVrR+vrtMUqYC2LUq1LXWvdW5GliqJsyhbC8/uDX1JiAiQh\nK7k/15ULcs6Tc54cY77c5zmLJIQQICIiMoDM2h0gIiL7w+JBREQGY/EgIiKDsXgQEZHBWDyIiMhg\nLB5ERGQwqxaPpKQkdOnSBf3792+2zXPPPYfw8HBERUXhxIkTFuwdERE1x6rFY+7cucjIyGh2flpa\nGi5fvoxLly7h/fffx1NPPWXB3hERUXOsWjxGjBiBjh07Njt/586dmD17NgBg6NChKCsrQ3FxsaW6\nR0REzXC2dgdaUlRUhKCgIPXzwMBAFBYWokuXLhrtJEmydNeIiNoFYy8yYvMD5ve+seYKhWj6EIKP\nNjySk5Ot3of28uC25Pa05Udb2HTxCAgIQEFBgfp5YWEhAgICWn3dzJnA7dvm7BkRkWOz6eIxYcIE\nbN68GQBw6NAh+Pr6au2y0sXPD+jfH/j6a3P3kIjIMVl1zOPxxx/Hvn37UFJSgqCgIKxYsQIKhQIA\nsGDBAowbNw5paWkICwuDh4cHPvnkE72Wu2YNkJgIJCUB27c3PvfzM+c7aV/i4uKs3YV2g9vStLg9\nbYck2rrjywZIkgSNN/H/39Ldu8CyZcCOHcB77wHjx1ule0RENkmSJKPHPtp18VDZv78xhcTEMIUQ\nEam0pXjY9JiHqcTGAqdOcSyEiMhUHCJ5NMUUQkTUiMnDAEwhRERt53DJoymmECJyZEweRmIKISIy\njkMnj6aYQojI0TB5mABTCBGR/pg8dGAKISJHwORhYkwhREQtY/
+JoBVMIEbVXTB5mxBRCRKSNycMA\n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\nq9bftC/
+39q2131UkSTLod9VzSZIgk8nUP1v63ZTzVA+yHEumkLYkDxYPalZDQwPq6upQV1cHhUKB\n+vp6KJVKg34qFAqNR319vcajaXulUomGhgatn00/ok2/zO79venPe3/Xh64v/tb+e5jyv09L/dW3\n0LSmpfeoKtD3/t60eMlkMjg5Oal/qh7Ozs7qn6qHXC5X/3RxcVFPv7d9az9dXFzg4uICuVzuMIXs\n7l1g2TJgxw7gvfeA8ePNsx4WDwcuHkII1NfXq7/gm37Zq35v+ry2thY1NTWora1VP1Tz7/1yF0Ko\nvyha+gv03i8c1Rd+O/hokYk1TVC6in9Tqs9P00Qok8m0ipOquLi6uqofbm5uGkWntd+dnJwsuh30\nZe4UwuJhx8WjoaEBtbW1qK6uRnV1NWpqarQed+7cQVVVlXp+0y98pVKptduhqaZf6Eql0krvksjy\ndO2CU7l3NygAODk5QS6XaxQgNzc3eHh4wMPDAx06dNB4NG3j4uJitlRkzhTC4mEjxUMIgbq6OlRW\nVqofqqJQWVmpVQRUBUAV/VUfPtUHW7XbhoisT5XCZbLfjjNS/VEmhFCnmA4dOsDd3R0eHh7w9PSE\nh4eHugh5eXnBy8sLnp6ecHZ2Nmj95kghLB5mLh66ikJlZSXKy8tRWlqqLgzV1dUAAGdnZ/U/impf\nPhE5JkmS1H8gAo0Fp76+Hs7OznB3d4enpye8vb3RsWNHeHt7qwuMriJj6hTC4mGC4nH37l2UlJTg\n5s2buHnzJm7fvt1iUaivr2cqICKTaroXorki4+/vj/z8YKxc2RMPPyzD22/LjE4hLB56Fg8hBCoq\nKtRF4tq1ayguLkZpaSmUSiWcnZ3R0NAAhUJhkX4TERnDxcUFCoUL0tOH4+zZvpg9+xDGjq1Hly5d\n0LlzZ3Tq1Alubm6tLofFo5niUVZWhgsXLuDq1asoLi5GeXm5OkKqDg8lIrJnV6/2QGrq7xEYWIDx\
+n4zPh6VmnTix+fn7o2rUrQkNDERYWBldXV43XsnjcUzyyMjNx5swZVFZWAgDq6+ut0zEiIguoq5Mj\nM3Mkzp7ti9/9bjciIi5qzHdxcYFSqUT37t3Rv39/REREwNvbm8Xj3uKxauVKjkcQkcNpmkLGjs2A\nm1uNVhu5XA4hBHr27ImZM2fy2lZNsXAQkSPq2TMfCxe+Bze3aqxf/xQuXLhfq43qZOArV660aV3t\nsngQETkdomTIAAASV0lEQVQqFxcFxo7dgylT/os9exLwxRcTUV3dQatdW//IZvEgLXl5edbuQrvB\nbWla3J76aymFSJJk8EmK97J68cjIyEDv3r0RHh6O1atX62zz3HPPITw8HFFRUThx4kSry1Rds8ZR\nLqJmavwPajrclqbF7WmYe1PIV19NhpNTZwwZMgQLFixo07KtWjyUSiWeeeYZZGRk4OzZs9i6dSvO\nnTun0SYtLQ2XL1/GpUuX8P777+Opp55qdblLlizB448/jkGDBsHDwwNOTk5wdXWFXC4311shIrIp\nqsulyGQyDB5cg23bzmPw4DC8++6foVCMQadOndq0/LblljY6cuQIwsLCEBwcDACYPn06UlNT0adP\nH3WbnTt3Yvbs2QCAoUOHoqysDMXFxejSpUuzy5XJZAgODkZwcDDGjRuH6upq3Lx5EyUlJSguLsa1\na9dw69Yt1NTUqI88qKurM+t7JSIyNZlMpv4Oq6+vh5eXFzp16oSAgAB07twZnTt3hr+/v3oX1WOP\n/XaNrNOn27ZuqxaPoqIiBAUFqZ8HBgbi8OHDrbYpLCzUKh4aO6i4u6rNcnJyrN2FdoPb0rS4PU3j\nb39r2+utWjz0HZO49zhkXZcdJyIiy7HqmEdAQAAKCgrUzwsKChAYGNhim8LCQgQEBFisj0REpM2q\nxWPQoEG4dOkS8vLyUFdXh88//xwTJkzQaDNhwgRs3rwZAHDo0CH4+vq2ON5BRETmZ9XdVs7Ozli3\
+nbh0SEhKgVCoxb9489OnTBxs2bAAALFiwAOPGjUNaWhrCwsLg4eGBTz75xJpdJiIiABB2JD09XURE\nRIiwsDDx2muv6Wzz7LPPirCwMDFgwABx/PhxC/fQvrS2PbOzs4W3t7cYOHCgGDhwoFi1apUVemkf\n5s6dK+677z4RGRnZbBt+NvXX2vbkZ1N/+fn5Ii4uTvTt21f069dPrFmzRmc7Qz+fdlM86uvrRWho\nqLhy5Yqoq6sTUVFR4uzZsxptdu/eLcaOHSuEEOLQoUNi6NCh1uiqXdBne2ZnZ4vx48dbqYf2Zf/+\n/eL48ePNftnxs2mY1rYnP5v6u3btmjhx4oQQQojKykpx//33m+S70+pnmOur6TkhcrlcfU5IU82d\nE0La9NmeAI9k09eIESPQsWPHZufzs2mY1rYnwM+mvrp27YqBAwcCADw9PdGnTx/8+uuvGm2M+Xza\nTfHQdb5HUVFRq20KCwst1kd7os/2lCQJBw8eRFRUFMaNG4ezZ89aupvtBj+bpsXPpnHy8vJw4sQJ\nDB06VGO6MZ9Pqw6YG8JU54RQI322S3R0NAoKCuDu7o709HRMnDgRFy9ebPV1pBs/m6bDz6bh7ty5\ngylTpmDNmjXw9PTUmm/o59NukgfPCTEtfbanl5cX3N3dAQBjx46FQqHA7du3LdrP9oKfTdPiZ9Mw\nCoUCiYmJmDFjBiZOnKg135jPp90UD54TYlr6bM/i4mL1XyNHjhyBEAJ+fn7W6K7d42fTtPjZ1J8Q\nAvPmzUPfvn2xaNEinW2M+XzazW4rnhNiWvpszx07duDdd9+Fs7Mz3N3dsW3bNiv32nY9/vjj2Ldv\nH0pKShAUFIQVK1ZAoVAA4GfTGK1tT3429XfgwAFs2bIFAwYMwAMPPAAAeOWVV5Cfnw/A+M9nu7iH\nORERWZbd7LYiIiLbweJBREQGY/EgIiKDsXgQEZHBWDyo3ZszZw5kMpn66BJLUygUSE5ORnh4OFxd\
+nXSGTybBz506Tr0cmkyE+Pt7ky9WXtbczWRaLB0Emk0Ems9+PQkpKCmQyGfbv399sG2uezf3mm29i\n1apVCAwMxEsvvYSUlBT07t271dcdPXoUf/rTn9CzZ0906NABPj4+CAsLw/jx4/HGG2+gqqpK6zXW\nPmvd2usny7Gb8zzIvNr7f3prHpG+a9cueHl5Ye/evXB21u+/3JYtWzB79mxIkoSRI0ciMTERbm5u\nyMvLw3fffYe0tDQkJiaiV69eZu69YXjkv+Ng8aB2w1a/uH799Vf4+/vrXTiqqqrw9NNPw8nJCXv2\n7NG5K+rQoUPw9/c3dVeJ9Ga/+yrIarZu3Yr4+Hj4+vrCzc0Nffv2xT//+U/U1dVptVXth7916xae\nfPJJdOvWDR06dEBkZCQ2btyoc/m1tbVISUlBr1690KFDB/Tq1QvLly9HbW2t1n794OBgrFy5EgAQ\nHx+v3gWnazecEAIbNmxA//794ebmhq5du2LBggWoqKgw6P2Xl5dj6dKliIiIgJubG/z8/DBmzBhk\nZmZqtFONAeTl5SEvL0/dr5CQkBaXf+bMGVRWViIyMrLZMYyHHnoIPj4+Oufpu60VCgXWrVuHcePG\nqXeN+fv747HHHkNGRkaz/fv2228xYsQIeHh4wN/fH5MmTcL58+dbfE/bt29HbGwsfHx84O7ujgED\nBuC1117T+szExMTA1dVVa5fcI488AplMhvnz52tMP3fuHGQymfpy4mQ5TB5kkKSkJGzcuBFBQUGY\nOnUqfH198f3332P58uXIzMzE3r174eTkpPGasrIyDBs2DK6urvjDH/6A2tpabN++HUlJSZDJZJg1\na5a6rRACiYmJSEtLw/33349nn30WdXV12LhxI86cOQNAcxfb4sWL8dVXX2Hfvn2YM2cOgoODm+37\niy++iG+++QYTJkzAmDFjkJWVhQ8++ACXL1/W+uJvjuq9nDt3DkOGDEFiYiJu3ryJ7du3Y/To0Xj3\
+n3Xfx5JNPAgAmTZqEkJAQvPXWW+q+AoCvr2+L6+jUqROAxsRSVVWlvgCgPkpLS/Xe1rdu3cKiRYsw\nbNgwJCQkoHPnzvj111/x9ddfY9y4cfjggw8wb948jeXv2LED06ZNQ4cOHTBt2jR069YNubm5ePjh\nhzFgwACdfVq2bBlee+01dO7cGTNmzICnpyfS0tKwbNky7NmzB9988w3kcjkA4NFHH8Xhw4eRm5uL\nhIQEAI1J7NChQwCg9e+kev7oo4/qvY3IRNp8myqye5IkCZlM1mq7Tz75REiSJBITE0VNTY3GvJSU\nFCFJktYtLiVJEpIkiSeeeEI0NDSop589e1Y4OzuLvn37arTfvHmzkCRJPPLII0KhUKinl5WVid69\newtJkkR8fLzGa5KTk4UkSWLfvn06+z179mwhSZLo2bOnKCgoUE+vr68XsbGxQpIkceTIkVbfvxBC\nPPnkk0KSJLFw4UKN6ZcuXRI+Pj7C1dVV5OXlaczr2bOnCAkJ0Wv5KkOGDBGSJImBAweKd955R5w4\ncULU1ta2+BpDt3Vtba0oKirSWk55ebmIjIwUfn5+orq6Wj29srJS+Pn5CRcXF3Hs2DGN1yxevFj9\nObp69ap6+sGDB9Xbvri4WD29vr5ejB8/XkiSJF555RX19KysLCFJknjxxRfV0zIyMoQkSWL06NFC\nkiTx888/q+dNnDhRSJIkCgsLW9w2ZHosHqR38Rg4cKBwcXER5eXlWvPq6+tFp06dxJAhQ7SW7enp\nKSorK7VeExsbK2Qymbh796562qhRo4QkSSI3N1er/Weffdam4vHRRx9pzVMVxHfeeUf3m26itrZW\nuLu7C29vb1FaWqo1f/ny5UKSJLFy5UqN6cYUj/z8fBEfH68uCJIkCblcLoYMGSJWr14tKioqtF5j\n6LZuyZtvvikkSRL79+9XT9uyZYuQJEnMmTNHq315ebnw8fHRKh7z588XkiSJDz74QOs1Fy9eFE5O\
+nTqJXr17qaTU1NcLNzU1ER0erp7344ovCxcVFfP/990KSJPH+++8LIYRQKpXC19dXRERE6PWeyLS4\n24r0UlVVhVOnTqFz587417/+pbONi4sLzp07pzU9PDxc581ngoKCIIRAaWmpetfMiRMn4OTkhIcf\nflir/bBhw9r0HgYNGqQ1TXUPk9LS0lZff+HCBVRXV2P48OE6dz2NHDkS//jHP3Dy5Mk29RNo3DZZ\nWVk4f/489u7di2PHjuHIkSM4evQojh49ivXr1yMnJ0drN50h2xoAfvrpJ7zxxhvYv38/rl+/jpqa\nGo3XNb1d6fHjxwE0jj/cy9vbGwMHDtQ6XPr48ePqI8buFR4ejoCAAOTl5aGyshJeXl5wdXVFTEwM\ncnJyUFpaio4dOyIrKwuDBw/GQw89hC5duiAzMxNPPPEEjh8/jvLycjz++OOtb1AyORYP0ovqy/Xm\nzZvqAWpddB3y29w+ftXRR0qlUj2tvLwc/v7+Oge823r/C1390NWH5pSXlwMAunXrpnN+165dATSO\ni5hK7969Nc4JuXDhApKSkvD9999j8eLF+PLLLzXaG7KtDx06hJEjR6KhoQGjRo3CxIkT4e3tDZlM\nhhMnTiA1NRW1tbXq9qr339y/g+r9N9XaNuvWrRsKCwtRVlYGLy8vAI3jF9nZ2cjOzkZ8fDxOnjyJ\nv/71rwAaD4pQjXOofo4aNUrnssm8WDxIL6oje6Kjo/HDDz+YbT3e3t64ffs2GhoatApIcXGx2dar\nD9U2uH79us75165d02hnDhEREfj0008RFhaG7OzsNi3rH//4B2pqapCTk4PY2FiNea+++ipSU1M1\npqneV3P/Drq2i+o1165d03lOiq5tpkope/fuBQB1cVPN27ZtG06dOoXMzEyrn1XvyHioLunF09MT\n/fr1w5kzZ/TaxWOs6OhoKJVKHDhwQGved999p/M1qqO79EkPbdG7d2+4ubnh1KlT6r+om1J9mUdH\
+nR5u1H6rdUqKN57VcvnwZ/v7+WoUDAPbt26c17cEHHwQA5OTkaM0rLy/HyZMntZJndHQ0hBA6X3P5\n8mUUFhYiJCQE3t7e6umDBg2Ct7c3MjMzkZWVBTc3N8TExAD4LWWkpaXhwIEDGDBgAO8gaCUsHqS3\n//mf/0FdXR2SkpJ0fnmWlpbixIkTbVqH6lDSv/3tb+o7xwGNX06rVq3S+RrVyXJXr15t07pbI5fL\nMWPGDFRUVGD58uUa837++WesXbsWLi4umDlzZpvWk5eXh7Vr1+o8/0QIgX/+858AoPNL3xAhISG4\ndesWfvzxR43pH330Eb755hut9r///e/RsWNH/Oc//8GxY8c05qWkpOjsb1JSEoDGlFNSUqKerlQq\n8cILL6hvkdqUk5MTYmNjcfnyZezYsQMjRoxQH8obEhKC4OBgrFmzBtXV1TrHUsgyuNuKADR+Kc2Z\nM0fnPEmSsH79esydOxfHjh3D+vXrERoaioSEBAQFBeH27du4cuUKcnNzkZSUhPXr1xvdj1mzZmHb\ntm3IyMhAZGQkxo8fD4VCgS+++AKDBw/GxYsXtXZnjRw5EjKZDEuXLsWPP/6Ijh07AmgsQKb22muv\nITc3F+vWrcPRo0cRFxeHkpISbN++HXfv3sW6devQs2fPNq2jrKwMixYtwksvvYRhw4ahX79+8PLy\nwo0bN5CVlYUrV66gS5cuePPNN9u0nkWLFmHPnj0YPnw4/vCHP8Db2xs//PADDhw4gClTpmDHjh0a\n7T08PPD+++9j2rRpGDFiBKZNm4auXbviu+++w08//YTY2FitAfOYmBi89NJLeP311xEZGYkpU6bA\n3d0d6enp+OmnnzBixAi8+OKLWn0bNWoUdu3ahRs3bmiNaYwaNQofffSR+neyEise6UU2QnWobtPD\nQptOk8lkGofn7tq1S/zud78T9913n3BxcRHdunUTQ4cOFcuXLxcXLlzQWva9h9aqzJkzR+vQTiEa\nD9f8+9//
+LkJCQoSrq6sICQkRf/vb30RRUZGQJElMmjRJa1lbtmwRAwcOFG5ublqHHje3HiGEyM7O\nFpIkiRUrVui9vcrKysTLL78swsPDhaurq+jYsaMYPXq02Lt3r872wcHBBh2qW1tbK7766ivx5z//\nWURHR4suXboIuVwufH19xaBBg8Ty5ctFSUmJ1uuM2da7du0SDz30kPDy8hIdO3YUCQkJIjc3V2zc\nuFHIZDKxadMmrWXt3btXDB8+XLi7uws/Pz8xceJEceHChRa387Zt28Tw4cOFl5eX6NChg4iMjBSv\nvPJKs+eu/Pjjj+p/xx9++EFj3tatW4UkScLFxUXcuXOn2e1I5sV7mJPd2Lt3LxISErB06VL1rhsi\nsg6OeZDNUR2B09StW7ewZMkSSJKESZMmWaFXRNQUxzzI5ixevBinT59GTEwMOnfujMLCQqSnp6O0\ntBQLFy7UebIfEVkWiwfZnMTERNy4cQO7du1CWVkZ3Nzc0K9fP8ybN0999A4RWRfHPIiIyGAc8yAi\nIoOxeBARkcFYPIiIyGAsHkREZDAWDyIiMhiLBxERGez/AXHSZW9lD7H+AAAAAElFTkSuQmCC\n",
+       "text": [
+        "<matplotlib.figure.Figure at 0x25ddb90>"
+       ]
+      }
+     ],
+     "prompt_number": 6
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "If you measure the length of the stick and the length of the shadow what trigonmetric identity gives you the Angle Theta?\n"
+     ]
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "You now have the angle of the sun rays striking the earth. If you were Eratosthenes you would now be able to figure out the circumference of the earth since he knew his distance to the Tropic of Cancer, the point on the Earths Surface where the suns rays are parallel. We do not know how far we are from the Tropic of Cancer but we do know how far it is to the other school. "
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "We now need to figure out the distance to your partners school. Look up the Latitude and Longitude of your school, and your partner school. Calculate the distance in km between the two schools by using the following formula. "
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "def distance(lat1,lon1,lat2,lon2):\n",
+      "    R = 6373.0\n",
+      "\n",
+      "    lat1 = np.radians(lat1)\n",
+      "    lon1 = np.radians(lon1)\n",
+      "    lat2 = np.radians(lat2)\n",
+      "    lon2 = np.radians(lon2)\n",
+      "\n",
+      "    dlon = lon2 - lon1\n",
+      "    dlat = lat2 - lat1\n",
+      "    a = (sin(dlat/2))**2 + cos(lat1) * cos(lat2) * (sin(dlon/2))**2\n",
+      "    c = np.degrees(2 * atan2(sqrt(a), sqrt(1-a)))\n",
+      "    distance = c "
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Once you know this distance, call your partner on skype using the Lab computer. \n",
+      "(The teachers should have made arrangments before)\n",
+      "\n",
+      "You now should now share the angle data with your partner!\n",
+      "\n"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Ask for the Angle they got in their experiment."
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "You should now be able to calculate the circumfrance of the earth using the following fomula:\n",
+      "\n",
+      "$$C = (360/(Large \\theta - Small \\theta))*(Distance\\:from\\:your\\:school\\:to\\:your\\:Partners)$$"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Show and explaination as to why you subtract the two angles. A small picture is fine"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "\n",
+      "What was the distance you get for your circumference?\n",
+      "\n"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "What were some difficulties you had with this project? \n",
+      "\n"
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Write 3 sentences describing how yours and Eratosthenes methods are different."
+     ]
+    },
+    {
+     "cell_type": "heading",
+     "level": 3,
+     "metadata": {},
+     "source": [
+      "Calculate the error between  your result and the estimated result of 40,050 km. \n",
+      "\n",
+      "Where might this error come from?"
+     ]
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
